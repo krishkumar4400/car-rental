@@ -14,3 +14,5 @@ const resendAccountVerificationMail = asyncHandler(
 );
 
 const changeCurrentPassword = asyncHandler(async (req, res, next) => {});
+const changeCurrentName = asyncHandler(async (req, res, next) => {});
+const changeCurrentAddress = asyncHandler(async (req, res, next) => {});
