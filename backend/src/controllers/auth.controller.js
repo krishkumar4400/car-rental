@@ -126,4 +126,3 @@ const loginUser = asyncHandler(async (req, res, next) => {
 const sendForgotPasswordMail = asyncHandler(async (req, res, next) => {});
 
 const resetPassword = asyncHandler(async (req, res, next) => {});
-
