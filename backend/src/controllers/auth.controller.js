@@ -63,11 +63,12 @@ const registerUser = asyncHandler(async (req, res, next) => {
   `;
   await sendMail({ to: email, subject: "Account Verification", html });
 
-  // send response back to user
+  // generate access and refresh tokens
   const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
     user._id,
   );
-
+  
+  // send response back to user
   const response = {
     message: "User registered successfully",
     success: true,
@@ -96,7 +97,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
   if (!user) {
     throw new ApiError(401, "incorrect email or password");
   }
-  
+
   // check if password is correct
   const isPasswordMatch = await user.comparePassword(password);
 
@@ -104,8 +105,10 @@ const loginUser = asyncHandler(async (req, res, next) => {
     throw new ApiError(401, "incorrect email or password");
   }
 
+  // generate access and refresh tokens
   const { accessToken, refreshToken } = generateAccessAndRefreshToken(user._id);
 
+  // send response back to user
   const response = {
     message: "User logged in successfully",
     success: true,
