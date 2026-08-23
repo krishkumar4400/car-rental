@@ -5,7 +5,7 @@ import connectToDB from "./src/config/database.js";
 
 const server = http.createServer(app);
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 await connectToDB();
 
