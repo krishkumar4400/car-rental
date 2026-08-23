@@ -91,6 +91,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
 const loginUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
+  // check if phone number already exists
   const user = await userModel.findOne({ email }).select("+password");
   if (!user) {
     throw new ApiError(401, "incorrect email or password");
