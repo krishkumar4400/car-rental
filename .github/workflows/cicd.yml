@@ -1,0 +1,13 @@
+name: Car Rental Platform 
+
+on:
+    workflow_dispatch:
+    push:
+
+jobs:
+    build-push:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repo
+              run: echo ""
